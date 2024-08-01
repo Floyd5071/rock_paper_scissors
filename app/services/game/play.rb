@@ -2,7 +2,6 @@
 
 module Game
   class Play < Base
-
     TURNS = %w[rock paper scissors].freeze
     RULES = YAML.load_file(Rails.root.join('config', 'game_rules.yml'))
 
@@ -52,6 +51,5 @@ module Game
       puts rule_key
       self.final_decision = RULES[rule_key]
     end
-
   end
 end

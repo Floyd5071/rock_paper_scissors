@@ -32,11 +32,11 @@ module RockPaperScissors
 
     def process_response(response)
       body = begin
-               parsed_json = JSON.parse(response.body)
-               parsed_json.deep_symbolize_keys
-             rescue StandardError
-               {}
-             end
+        parsed_json = JSON.parse(response.body)
+        parsed_json.deep_symbolize_keys
+      rescue StandardError
+        {}
+      end
       OpenStruct.new(body: body, code: response.code)
     end
   end
