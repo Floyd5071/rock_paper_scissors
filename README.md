@@ -4,14 +4,15 @@
 
 ### Using docker
 
-1. Install Docker into your system by downloading a package from the official website or by using a package manager for your system (i.e. Homebrew)
-2. Start Docker and proceed with initial setup
-3. Open terminal, go to the project dir and execute these commands:
+1. Clone project from github repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+2. Install Docker into your system by downloading a package from the official website or by using a package manager for your system (i.e. Homebrew)
+3. Start Docker and proceed with initial setup
+4. Open terminal, go to the project dir and execute these commands:
 ```
 docker build . -t rubyapp
 docker-compose up -d
 ```
-4. Done. API is up and running
+5. Done. API is up and running
 
 ---
 
