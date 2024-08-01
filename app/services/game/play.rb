@@ -40,7 +40,6 @@ module Game
 
     def fetch_enemy_turn
       response = RockPaperScissors::Client.new.throw
-      puts response.inspect
       return TURNS.sample if response.code != '200'
 
       response.body[:body]
@@ -48,7 +47,6 @@ module Game
 
     def play_game
       rule_key = "#{user_turn}_#{enemy_turn}"
-      puts rule_key
       self.final_decision = RULES[rule_key]
     end
   end
