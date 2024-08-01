@@ -1,0 +1,13 @@
+rock_scissors: won
+scissors_paper: won
+paper_rock: won
+
+scissors_rock: lost
+paper_scissors: lost
+rock_paper: lost
+
+rock_rock: tied
+paper_paper: tied
+scissors_scissors: tied
+
+hammer: won;)
