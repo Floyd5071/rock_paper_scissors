@@ -38,7 +38,7 @@ module RockPaperScissors
         parsed_json.deep_symbolize_keys[:body]
       rescue StandardError => e
         Rails.logger.warn(e)
-        ''
+        nil
       end
       Response.new(body, response.is_a?(Net::HTTPSuccess))
     end

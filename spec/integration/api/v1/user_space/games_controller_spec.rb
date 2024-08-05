@@ -29,7 +29,21 @@ describe Api::V1::UserSpace::GamesController do
         let(:expected_result) { { result: 'tied' } }
 
         run_test! do
-          expect(JSON.parse(response.body)).to eq(expected_result.stringify_keys)
+          expect(json).to eq(expected_result.stringify_keys)
+        end
+      end
+
+      response '422', 'Unprocessable Entity' do
+        let(:turn) { '' }
+
+        let(:expected_result) do
+          { errors: { turn: 'Wrong user turn' } }.as_json
+        end
+
+        schema '$ref' => '#/definitions/ResponseError'
+
+        run_test! do
+          expect(json).to eq(expected_result)
         end
       end
     end

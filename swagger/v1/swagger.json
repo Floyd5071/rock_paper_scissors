@@ -29,7 +29,7 @@
     "ResponseError": {
       "type": "object",
       "required": [
-        "error"
+        "errors"
       ],
       "properties": {
         "error": {
@@ -58,7 +58,25 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "examples": {
+              "application/json": {
+                "result": "tied"
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "schema": {
+              "$ref": "#/definitions/ResponseError"
+            },
+            "examples": {
+              "application/json": {
+                "errors": {
+                  "turn": "Wrong user turn"
+                }
+              }
+            }
           }
         }
       }
