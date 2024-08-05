@@ -1,0 +1,67 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1",
+    "description": "RPS Rails API"
+  },
+  "basePath": "/api/v1",
+  "servers": [
+    {
+      "url": "http://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "127.0.0.1:3000"
+        }
+      }
+    }
+  ],
+  "parameters": {
+    "turn": {
+      "name": "turn",
+      "in": "query",
+      "type": "string",
+      "description": "You turn. Could be: rock, paper, scissors",
+      "example": "rock"
+    }
+  },
+  "definitions": {
+    "ResponseError": {
+      "type": "object",
+      "required": [
+        "error"
+      ],
+      "properties": {
+        "error": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "description": "Human readable message explaining the error"
+        }
+      }
+    }
+  },
+  "paths": {
+    "/user_space/games/play": {
+      "get": {
+        "summary": "Play the game",
+        "tags": [
+          "Game"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/turn"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}

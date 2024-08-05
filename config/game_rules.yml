@@ -1,13 +1,13 @@
-rock_scissors: won
-scissors_paper: won
-paper_rock: won
+rock_scissors: 0
+scissors_paper: 0
+paper_rock: 0
 
-scissors_rock: lost
-paper_scissors: lost
-rock_paper: lost
+scissors_rock: 1
+paper_scissors: 1
+rock_paper: 1
 
-rock_rock: tied
-paper_paper: tied
-scissors_scissors: tied
+rock_rock: 2
+paper_paper: 2
+scissors_scissors: 2
 
 hammer: won;)

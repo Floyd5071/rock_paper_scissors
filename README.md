@@ -19,5 +19,5 @@ docker-compose up -d
 ### How to use this APP
 
 1. Open your browser
-2. Put this url to your browser: http://127.0.0.1:3000/api/v1/user_space/games/play?turn={{user_turn}}, where {{user_turn}} must be in [rock, paper, scissors]
+2. Put this url to your browser: http://127.0.0.1:3000
 3. Enjoy it;)

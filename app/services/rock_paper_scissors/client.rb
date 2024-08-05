@@ -5,6 +5,8 @@ require 'net/http'
 
 module RockPaperScissors
   class Client
+    Response = Struct.new(:body, :success)
+
     def initialize
       uri = URI(Rails.configuration.game[:game_url])
       @http = Net::HTTP.new(uri.host, uri.port)
@@ -33,11 +35,12 @@ module RockPaperScissors
     def process_response(response)
       body = begin
         parsed_json = JSON.parse(response.body)
-        parsed_json.deep_symbolize_keys
-      rescue StandardError
-        {}
+        parsed_json.deep_symbolize_keys[:body]
+      rescue StandardError => e
+        Rails.logger.warn(e)
+        ''
       end
-      OpenStruct.new(body: body, code: response.code)
+      Response.new(body, response.is_a?(Net::HTTPSuccess))
     end
   end
 end
