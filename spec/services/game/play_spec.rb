@@ -43,5 +43,17 @@ describe Game::Play do
         expect(Game::Play::DECISIONS).to include(service.final_decision)
       end
     end
+
+    context 'when client response is not correct' do
+      include_context 'with incorrect game response'
+
+      it 'does not return errors' do
+        expect(service.errors).to be_empty
+      end
+
+      it 'plays the game' do
+        expect(Game::Play::DECISIONS).to include(service.final_decision)
+      end
+    end
   end
 end
