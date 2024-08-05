@@ -36,14 +36,18 @@ module Game
     end
 
     def validate_user_turn
-      self.errors = { turn: 'Wrong user turn' } if TURNS.exclude?(user_turn)
+      self.errors = { turn: 'Wrong user turn' } if invalid_turn?(user_turn)
     end
 
     def fetch_enemy_turn
       response = RockPaperScissors::Client.new.throw
-      return TURNS.sample if !response.success || TURNS.exclude?(response.body)
+      return TURNS.sample if !response.success || invalid_turn?(response.body)
 
       response.body
+    end
+
+    def invalid_turn?(turn)
+      TURNS.exclude?(turn)
     end
 
     def play_game
