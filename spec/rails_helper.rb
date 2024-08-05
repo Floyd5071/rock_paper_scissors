@@ -11,6 +11,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 
 RSpec.configure do |config|
+  config.include JsonHelper
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 

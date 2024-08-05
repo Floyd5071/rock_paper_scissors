@@ -45,7 +45,7 @@ RSpec.configure do |config|
       definitions: {
         ResponseError: {
           type: :object,
-          required: %I[error],
+          required: %I[errors],
           properties: {
             error: {
               type: :string,

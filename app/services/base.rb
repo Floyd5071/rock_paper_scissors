@@ -6,10 +6,4 @@ class Base
   def initialize
     @errors = {}
   end
-
-  private
-
-  def valid?
-    errors.empty?
-  end
 end

@@ -28,5 +28,11 @@ module RockPaperScissors
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    if Rails.env.test? || Rails.env.development?
+      RSpec.configure do |config|
+        config.rswag_dry_run = false # Generate examples from responses (rswag)
+      end
+    end
   end
 end
